@@ -1,0 +1,7 @@
+{
+    "name": "oidc-mock",
+    "dependencies": {
+        "oidc-provider": "^8.4.7"
+    },
+    "devDependencies": {}
+}
