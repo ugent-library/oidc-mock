@@ -11,15 +11,38 @@ const provider = new Provider(`http://${host}:${port}`, {
   features: {
     devInteractions: { enabled: true },
   },
-  pkce: { required: false },
+  pkce: {
+    required: function () { return false }
+  },
   clients: [{
     client_id: clientId,
     client_secret: clientSecret,
     redirect_uris: [redirectUri],
-    grant_types: ['authorization_code'],
     response_types: ['code'],
+    grant_types: ['authorization_code'],
   }],
 });
+
+function handleError(ctx, err) {
+  console.log(ctx);
+  console.log(err);
+}
+
+provider.on('authorization.error', handleError);
+provider.on('backchannel.error', handleError);
+provider.on('jwks.error', handleError);
+provider.on('discovery.error', handleError);
+provider.on('end_sessio n.error', handleError);
+provider.on('grant.error', handleError);
+provider.on('introspection.error', handleError);
+provider.on('pushed_authorization_request.error', handleError);
+provider.on('registration_create.error', handleError);
+provider.on('registration_delete.error', handleError);
+provider.on('registration_read.error', handleError);
+provider.on('registration_update.error', handleError);
+provider.on('revocation.error', handleError);
+provider.on('server_error', handleError);
+provider.on('userinfo.error', handleError);
 
 let server;
 
