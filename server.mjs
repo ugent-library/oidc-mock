@@ -11,12 +11,13 @@ const provider = new Provider(`http://${host}:${port}`, {
   features: {
     devInteractions: { enabled: true },
   },
+  pkce: { required: false },
   clients: [{
     client_id: clientId,
     client_secret: clientSecret,
     redirect_uris: [redirectUri],
     grant_types: ['authorization_code'],
-	  response_types: ['code'],
+    response_types: ['code'],
   }],
 });
 
