@@ -32,7 +32,7 @@ provider.on('authorization.error', handleError);
 provider.on('backchannel.error', handleError);
 provider.on('jwks.error', handleError);
 provider.on('discovery.error', handleError);
-provider.on('end_sessio n.error', handleError);
+provider.on('end_session.error', handleError);
 provider.on('grant.error', handleError);
 provider.on('introspection.error', handleError);
 provider.on('pushed_authorization_request.error', handleError);
